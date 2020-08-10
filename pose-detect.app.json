@@ -1,0 +1,34 @@
+{
+    "info": {
+        "name": "pose-detect",
+        "version": "1.0.0",
+        "category": "detectron2",
+        "keywords": ["deep", "detectron2", "maskrcnn", "faster-rcnn", "pose"],
+        "homepage": "https://answer.bogonets.com/",
+        "bugs": "https://answer.bogonets.com/",
+        "license": "Bogonet License",
+        "author": "wooruang",
+        "dependencies": [],
+        "engines": ">=1.0.2",
+        "environment": {
+            "type": "pyenv",
+            "name": "intersect"
+        },
+        "titles": {
+            "en": "Detect a pose",
+            "ko": "포즈 검출"
+        },
+        "descriptions": {
+            "en": "",
+            "ko": ""
+        },
+        "documentation_mime": "text",
+        "documentations": {},
+        "meta": {}
+    },
+    "controls": {
+        "input": "keypoints",
+        "output": "draw_image"
+    },
+    "props": []
+}
