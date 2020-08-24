@@ -12,9 +12,14 @@ def on_init():
 
 def on_run(keypoints):
 
+    if not keypoints.shape:
+        return {'result': None}
+
     result = pose.xposeOverShoulderByPrediction(keypoints)
 
-    if result['result']:
+    is_poses = [ x['result'] for x in result if x['result'] ]
+
+    if is_poses:
         return {'result': keypoints}
     else:
         return {'result': None}

@@ -31,7 +31,7 @@ def convertDictForCocoKeyPoint(prediction, threshold=_KEYPOINT_THRESHOLD):
     return persons
 
 
-def xposeOverShoulderByPrediction(prediction, threshold):
+def xposeOverShoulderByPrediction(prediction, threshold=0.5):
     persons = convertDictForCocoKeyPoint(prediction)
     # print(keypoints)
     result = []
@@ -53,13 +53,20 @@ def xposeOverShoulder(left_wrist, right_wrist, left_elbow, right_elbow, left_sho
         print("NO!!")
         return result
 
+    import sys
+    # sys.stderr.write(f"[pose.xposeOverShoulder] l_s < l_w : {left_shoulder} < {left_wrist}\n")
+    # sys.stderr.write(f"[pose.xposeOverShoulder] r_s < r_w : {right_shoulder} < {right_wrist}\n")
+    # sys.stderr.write(f"[pose.xposeOverShoulder] l_s < l_e : {left_shoulder} < {left_elbow}\n")
+    # sys.stderr.write(f"[pose.xposeOverShoulder] r_s < r_e : {right_shoulder} < {right_elbow}\n")
+    # sys.stderr.flush()
+
     # The wrist's y should be over the shoulder's y.
-    if isUpper(left_shoulder[1], left_wrist[1], right_shoulder[1], right_wrist[1]):
+    if not isUpper(left_wrist[1], left_shoulder[1], right_wrist[1], right_shoulder[1]):
         print("The wrist should be over the shoulder")
         return result
 
     # The elbow's y should be over the shoulder's y.
-    if isUpper(left_shoulder[1], left_elbow[1], right_shoulder[1], right_elbow[1]):
+    if not isUpper(left_elbow[1], left_shoulder[1], right_elbow[1], right_shoulder[1]):
         print("The elbow should be over the shoulder")
         return result
 

@@ -2,7 +2,7 @@
     "info": {
         "name": "pose-detect",
         "version": "1.0.0",
-        "category": "detectron2",
+        "category": "pose",
         "keywords": ["deep", "detectron2", "maskrcnn", "faster-rcnn", "pose"],
         "homepage": "https://answer.bogonets.com/",
         "bugs": "https://answer.bogonets.com/",
@@ -28,7 +28,7 @@
     },
     "controls": {
         "input": "keypoints",
-        "output": "draw_image"
+        "output": "result"
     },
     "props": []
 }
